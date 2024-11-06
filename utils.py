@@ -70,10 +70,3 @@ class LabelSmoothing(torch.nn.Module):
         loss = self.confidence * nll_loss + self.smoothing * smooth_loss
         return loss.mean()
 
-
-if __name__ == '__main__':
-    output = torch.tensor([[0.1, 0.1, 0.7, 0.1],
-                           [0.1, 0.7, 0.1, 0.1],
-                           [0.1, 0.1, 0.8, 0.0]])
-    target = torch.tensor([2, 1, 2])
-    print(correct_num(output, target, topk=(1,)))
